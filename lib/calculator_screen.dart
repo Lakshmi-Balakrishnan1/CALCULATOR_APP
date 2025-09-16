@@ -138,9 +138,16 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         result = num1 * num2;
         break;
       case Btn.divide:
-        result = num1 / num2;
-        break;
-        
+        if (num2 == 0) {
+           setState(() {
+          number1 = "∞";
+          operand = "";
+          number2 = "";
+       });
+         return;
+      }
+  result = num1 / num2;
+  break;
       default:
     }
 
